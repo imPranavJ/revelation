@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+
+class Events extends StatelessWidget {
+  const Events({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Gallery')),
+      body: const Center(child: Text('Gallery Page')),
+    );
+  }
+}
