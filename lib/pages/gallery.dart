@@ -54,13 +54,25 @@ class _GalleryState extends State<Gallery> {
             child: Column(
               children: [
                 const SizedBox(height: 30),
-                const Text(
-                  "Revelation25",
+                Text(
+                  "Gallery",
                   style: TextStyle(
-                      fontSize: 35,
-                      fontFamily: 'f1',
-                      fontWeight: FontWeight.bold,
-                      color: CupertinoColors.systemRed),
+                    fontSize: 35,
+                    fontFamily: 'f1',
+                    fontWeight: FontWeight.bold,
+                    color: CupertinoColors.systemRed,
+                    shadows: [
+                      Shadow(
+                        color: CupertinoColors.destructiveRed.withOpacity(0.8),
+                        blurRadius: 20,
+                      ),
+                      Shadow(
+                        color: const Color.fromARGB(255, 223, 243, 255)
+                            .withOpacity(0.6),
+                        blurRadius: 40,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 30),
                 Expanded(

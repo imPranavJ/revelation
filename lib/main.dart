@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:tally_clone/pages/about.dart';
 import 'package:tally_clone/pages/events.dart';
 import 'package:tally_clone/pages/gallery.dart';
@@ -187,6 +188,51 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
+  Widget _buildTimerSection() {
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+          backgroundBlendMode: BlendMode.hardLight,
+          gradient: const LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: [
+                Color.fromARGB(217, 255, 24, 63),
+                Color.fromARGB(228, 28, 150, 250)
+              ]),
+          borderRadius: BorderRadius.circular(12)),
+      child: TimerCountdown(
+        format: CountDownTimerFormat.daysHoursMinutesSeconds,
+        endTime: DateTime.utc(2025, 8, 8),
+        onEnd: () {
+          const Text("Let the Race to Glory Begin !");
+        },
+        timeTextStyle: const TextStyle(
+            fontFamily: 'f1',
+            color: Color.fromARGB(255, 223, 243, 255),
+            fontSize: 32,
+            shadows: [
+              Shadow(
+                color: Color.fromARGB(220, 120, 255, 255),
+                blurRadius: 20,
+              ),
+              Shadow(
+                color: Color.fromARGB(220, 120, 255, 255),
+                blurRadius: 40,
+              ),
+            ]),
+        colonsTextStyle: const TextStyle(
+            fontFamily: 'f1',
+            color: Color.fromARGB(255, 223, 243, 255),
+            fontSize: 24),
+        descriptionTextStyle: const TextStyle(
+            fontFamily: 'f1',
+            color: Color.fromARGB(255, 223, 243, 255),
+            fontSize: 12),
+      ),
+    );
+  }
+
   Widget _buildHeroSection() {
     return Container(
       padding: const EdgeInsets.all(40),
@@ -286,10 +332,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       style: TextStyle(
                         fontSize: 20,
                         color: Color.fromARGB(255, 255, 246, 246),
-                        height: 1.5,
+                        height: 2,
+                        fontFamily: 'inter',
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     CupertinoButton(
                       minSize: 100,
                       pressedOpacity: 0.39,
@@ -309,6 +356,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    _buildTimerSection(),
                   ],
                 ),
               );
@@ -613,10 +664,36 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 color: Colors.black,
               ),
               children: [
-                const TextSpan(text: 'Make Memories '),
+                TextSpan(
+                    text: 'Make Memories ',
+                    style: TextStyle(color: Colors.white, shadows: [
+                      Shadow(
+                        color: const Color.fromARGB(255, 79, 243, 255)
+                            .withOpacity(0.8),
+                        blurRadius: 20,
+                      ),
+                      Shadow(
+                        color: const Color.fromARGB(255, 223, 243, 255)
+                            .withOpacity(0.6),
+                        blurRadius: 40,
+                      ),
+                    ])),
                 TextSpan(
                   text: 'uniquely yours',
                   style: TextStyle(
+                    shadows: [
+                      Shadow(
+                        color: const Color.fromARGB(255, 255, 178, 69)
+                            .withOpacity(0.8),
+                        blurRadius: 20,
+                      ),
+                      Shadow(
+                        color: const Color.fromARGB(255, 223, 243, 255)
+                            .withOpacity(0.6),
+                        blurRadius: 40,
+                      ),
+                    ],
+                    color: Colors.white,
                     background: Paint()
                       ..color = Colors.yellow.shade200
                       ..strokeWidth = 15
@@ -626,16 +703,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          const SizedBox(height: 20),
-          const Text(
-            'Gear Up !',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black54,
-              height: 1.5,
-            ),
-          ),
+          // const SizedBox(height: 20),
           const SizedBox(height: 60),
           _buildCustomizationDemo(),
         ],
@@ -652,7 +720,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
       child: const Center(
         child: Text(
-          '🎨 Revelation25\'',
+          '🎨 Revelation25\' Placeholder for Event Updates',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
