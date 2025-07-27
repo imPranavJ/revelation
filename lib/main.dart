@@ -158,18 +158,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: BaseAppBar(
           title: const Text("Revelation25'"),
-          appBar: AppBar(),
+          appBar: AppBar(
+            elevation: 0,
+          ),
           widgets: const []),
-      backgroundColor: const Color.fromARGB(255, 240, 247, 255),
       body: Stack(
         children: [
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/track_1.jpg"),
-                    fit: BoxFit.cover)),
+              image: AssetImage("assets/track_1.jpg"),
+              fit: BoxFit.cover,
+            )),
             child: SingleChildScrollView(
               controller: _scrollController,
               child: Column(

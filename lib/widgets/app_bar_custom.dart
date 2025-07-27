@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
+
+import 'package:tally_clone/theme.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColor = Colors.red;
@@ -16,23 +19,41 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      flexibleSpace: ClipRect(
+        child: Container(
+          decoration: BoxDecoration(
+            border:
+                Border.all(color: Colors.white.withOpacity(0.2), width: 1.6),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+              child: Container(
+                color: Colors.white.withOpacity(0.1),
+              ),
+            ),
+          ),
+        ),
+      ),
       title: title,
       actions: [
         const SizedBox(width: 10),
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Colors.white.withAlpha(200),
             borderRadius: BorderRadius.circular(8),
           ),
           child: const Text(
             "REVELATION25'",
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'f1',
-            ),
+                color: Colors.black,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'f1',
+                backgroundColor: Colors.transparent),
           ),
         ),
         const Spacer(),

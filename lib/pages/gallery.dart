@@ -39,6 +39,7 @@ class _GalleryState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: BaseAppBar(
         title: const Text('Gallery'),
         appBar: AppBar(),
@@ -53,7 +54,7 @@ class _GalleryState extends State<Gallery> {
                     fit: BoxFit.cover)),
             child: Column(
               children: [
-                const SizedBox(height: 30),
+                const SizedBox(height: 85),
                 Text(
                   "Gallery",
                   style: TextStyle(
